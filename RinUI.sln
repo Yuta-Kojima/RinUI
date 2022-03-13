@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RinUI", "RinUI.csproj", "{1C254222-595F-48A8-A4AD-16007689B81A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Releas 64|Any CPU = Releas 64|Any CPU
+		Releas 64|x64 = Releas 64|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C254222-595F-48A8-A4AD-16007689B81A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C254222-595F-48A8-A4AD-16007689B81A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C254222-595F-48A8-A4AD-16007689B81A}.Debug|x64.ActiveCfg = Debug|x64
+		{1C254222-595F-48A8-A4AD-16007689B81A}.Debug|x64.Build.0 = Debug|x64
+		{1C254222-595F-48A8-A4AD-16007689B81A}.Releas 64|Any CPU.ActiveCfg = Releas 64|Any CPU
+		{1C254222-595F-48A8-A4AD-16007689B81A}.Releas 64|Any CPU.Build.0 = Releas 64|Any CPU
+		{1C254222-595F-48A8-A4AD-16007689B81A}.Releas 64|x64.ActiveCfg = Releas 64|x64
+		{1C254222-595F-48A8-A4AD-16007689B81A}.Releas 64|x64.Build.0 = Releas 64|x64
+		{1C254222-595F-48A8-A4AD-16007689B81A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C254222-595F-48A8-A4AD-16007689B81A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C254222-595F-48A8-A4AD-16007689B81A}.Release|x64.ActiveCfg = Release|x64
+		{1C254222-595F-48A8-A4AD-16007689B81A}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {239326A0-BEE3-4E6D-9A2E-AC5C7544AD60}
+	EndGlobalSection
+EndGlobal
