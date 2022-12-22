@@ -89,7 +89,7 @@ namespace RinUI.UIClasses
 
         public void Update()
         {
-            if (state.JudgeInAreaStartToEnd(Vector) && state.IsClicked && State.Instance().SelectedLayer <= Layer)
+            if (Vector >= new Vector2(State.Instance().MouseX, State.Instance().MouseY) && state.IsLeftClicked && State.Instance().SelectedLayer <= Layer)
             {
                 SelectedIndex = (int)((state.MouseY - Vector.Y1) / ItemHeight);
                 Action(SelectedIndex);

@@ -70,7 +70,7 @@ namespace RinUI.UIClasses
 
         public void Update()
         {
-            if (state.JudgeInAreaStartToEnd(Vector) && state.IsClicked)
+            if (state.JudgeClickInAreaVec(Vector) && state.IsLeftClicked)
             {
                 Click();
             }

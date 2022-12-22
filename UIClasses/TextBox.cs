@@ -38,7 +38,7 @@ namespace RinUI.UIClasses
 
 
         public TextBox(string key, Vector2x2 vector, string defaultText = "", byte layer = 0, int textLength = 100,
-            int singleCharOnly = DX.FALSE, int numCharOnly = DX.FALSE, Style style = null, Action<string> action = null, 
+            int singleCharOnly = DX.FALSE, int numCharOnly = DX.FALSE, Style style = null, Action<string> action = null,
             Action<string> initAction = null, Func<string, bool> func = null, string nextKey = "")
         {
             Vector = vector;
@@ -63,8 +63,8 @@ namespace RinUI.UIClasses
             initAction?.Invoke(Text.ToString());
         }
 
-        public static void Create(string key, Vector2x2 vector, string defaultText = "", byte layer = 0, int textLength = 100, 
-            int singleCharOnly = DX.FALSE, int numCharOnly = DX.FALSE, Style style = null, Action<string> action = null, 
+        public static void Create(string key, Vector2x2 vector, string defaultText = "", byte layer = 0, int textLength = 100,
+            int singleCharOnly = DX.FALSE, int numCharOnly = DX.FALSE, Style style = null, Action<string> action = null,
             Action<string> initAction = null, Func<string, bool> func = null, string nextKey = "")
         {
             _ = new TextBox(key, vector, defaultText, layer, textLength, singleCharOnly, numCharOnly, style, action, initAction, func, nextKey);
@@ -95,17 +95,19 @@ namespace RinUI.UIClasses
         private void JudgeClickedTextBox()
         {
             // 入力中
-            if (state.JudgeInAreaStartToEnd(Vector) && state.IsClicked && State.Instance().SelectedLayer < Layer)
+            //if (state.JudgeInAreaStartToEnd(Vector) && state.IsLeftClicked && State.Instance().SelectedLayer < Layer)
+            if ((Vector >= new Vector2(state.MouseX, state.MouseY)) && state.IsLeftClicked && State.Instance().SelectedLayer < Layer)
             {
                 WriteText();
             }
             // 入力を終了したとき
-            else if ((!state.JudgeInAreaStartToEnd(Vector) && state.IsClicked || DX.CheckKeyInput(keyData) == 1 && state.IsPushedEnter) && isInput)
+            //else if ((!state.JudgeInAreaStartToEnd(Vector) && state.IsLeftClicked || DX.CheckKeyInput(keyData) == 1 && state.IsPushedEnter) && isInput)
+            else if ((!(Vector >= new Vector2(state.MouseX, state.MouseY)) && state.IsLeftClicked || DX.CheckKeyInput(keyData) == 1 && state.GetKeyState(DX.KEY_INPUT_RETURN)) && isInput)
             {
                 SaveText();
             }
             // Tabを押したとき
-            if(isInput && state.IsPushedTab)
+            if (isInput && state.IsPushedTab)
             {
                 if (ComponentManager.Instance.Rinuis.ContainsKey(NextKey))
                 {

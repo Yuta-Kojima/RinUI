@@ -22,13 +22,13 @@ namespace RinUI
             Y2 = y2;
         }
 
-        public static bool operator <(Vector2x2 lValue, Vector2 rValue)
+        public static bool operator <=(Vector2x2 lValue, Vector2 rValue)
         {
             return (lValue.X1 <= rValue.X && rValue.X <= lValue.X2 &&
                     lValue.Y1 <= rValue.Y && rValue.Y <= lValue.Y2);
         }
 
-        public static bool operator >(Vector2x2 lValue, Vector2 rValue)
+        public static bool operator >=(Vector2x2 lValue, Vector2 rValue)
         {
             return (lValue.X1 <= rValue.X && rValue.X <= lValue.X2 &&
                     lValue.Y1 <= rValue.Y && rValue.Y <= lValue.Y2);

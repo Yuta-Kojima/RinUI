@@ -25,9 +25,9 @@ namespace RinUI
         public int? FontHandle { get; }
 
         public Style(int? width = null, int? height = null, int? margin = null, int? padding = null,
-            Align textAlign = Align.START, Align verticalAlign = Align.CENTER, int? top = null, int? bottom = null, int? left = null, int? right = null, 
+            Align textAlign = Align.START, Align verticalAlign = Align.CENTER, int? top = null, int? bottom = null, int? left = null, int? right = null,
             uint? fontColor = 0xFFFFFF, uint? borderLineColor = 0xFFFFFF, uint? backgroundColor = 0x000000,
-            uint? fontColorHover = null, uint? borderLineColorHover = null, uint? backgroundColorHover = null,int? fontHandle = null)
+            uint? fontColorHover = null, uint? borderLineColorHover = null, uint? backgroundColorHover = null, int? fontHandle = null)
         {
             Width = width;
             Height = height;
@@ -42,7 +42,7 @@ namespace RinUI
             FontColor = fontColor;
             BorderLineColor = borderLineColor;
             BackgroundColor = backgroundColor;
-            FontHandle = fontHandle == null ? Font.DefaultFont : fontHandle;
+            FontHandle = !fontHandle.HasValue ? Font.DefaultFont : fontHandle;
             FontColorHover = fontColorHover;
             BackgroundColorHover = backgroundColorHover;
             BorderLineColorHover = borderLineColorHover;

@@ -117,14 +117,14 @@ namespace RinUI.UIClasses
         public void Update()
         {
             // ドロップダウンのボタンを押したとき
-            if (state.JudgeInAreaStartToEnd(Vector) && state.IsClicked && State.Instance().SelectedLayer < Layer)
+            if (state.JudgeClickInAreaVec(Vector) && state.IsLeftClicked && State.Instance().SelectedLayer < Layer)
             {
                 Layer = 100;
                 State.Instance().SelectedLayer = Layer;
                 isOpen = true;
             }
             // ドロップボタンを押したとき
-            else if (state.JudgeInAreaStartToEnd(dropDownItemVector) && state.IsClicked && isOpen)
+            else if (state.JudgeClickInAreaVec(dropDownItemVector) && state.IsLeftClicked && isOpen)
             {
                 SelectedIndex = (state.MouseY - dropDownItemVector.Y1) / ItemHeight;
                 if (SelectedIndex > ItemList.Count - 1) return;
@@ -140,7 +140,7 @@ namespace RinUI.UIClasses
 
             }
             // ドロップボタン外を押したとき
-            else if (!state.JudgeInAreaStartToEnd(dropDownItemVector) && state.IsClicked && isOpen)
+            else if (!state.JudgeClickInAreaVec(dropDownItemVector) && state.IsLeftClicked && isOpen)
             {
                 isOpen = !isOpen;
                 Layer = initLayer;
