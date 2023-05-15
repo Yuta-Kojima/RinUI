@@ -119,7 +119,7 @@ namespace RinUI.UIClasses
             {
 
                 _isOpen = !_isOpen;
-                state.SelectedLayer = 100;
+                state.SelectedLayer = _isOpen ? 100 : 0;
                 Console.WriteLine($"Clicked {_text}: {_isOpen}");
             }
             if (_isOpen && state.IsLeftClicked && !(new Vector2x2(X1, Y1, X2, Y2) >= new Vector2(state.MouseX, state.MouseY)))

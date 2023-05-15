@@ -107,7 +107,7 @@ namespace RinUI.UIClasses
                 SaveText();
             }
             // Tabを押したとき
-            if (isInput && state.IsPushedTab)
+            if (isInput && state.GetKeyState(DX.KEY_INPUT_TAB))
             {
                 if (ComponentManager.Instance.Rinuis.ContainsKey(NextKey))
                 {

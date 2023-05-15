@@ -208,6 +208,7 @@ namespace RinUI
         private void JudgeKey(int key)
         {
             bool keyState = DX.CheckHitKey(key) == 1;
+            // Key登録されていない場合_keystatesに追加
             if (_keyStates.ContainsKey(key))
             {
                 _keyStates[key] = new KeyState(_keyStates[key].Before, keyState);
@@ -216,6 +217,7 @@ namespace RinUI
             {
                 _keyStates.Add(key, new(false, false));
             }
+
 
             if (KeyStates.ContainsKey(key))
             {
@@ -283,7 +285,7 @@ namespace RinUI
         private bool isPushedEnterAfter = false;
 
         // Selected Layer
-        public byte SelectedLayer { get; set; } = 0;
+        public int SelectedLayer { get; set; } = 0;
 
         // Key Board Input State
         public bool IsInputString { get; set; } = false;
@@ -323,18 +325,55 @@ namespace RinUI
         {
             PushLeftClick();
             PushRightClick();
+            JudgeKey(DX.KEY_INPUT_A);  // Ａキー
+            JudgeKey(DX.KEY_INPUT_B);  // Ｂキー
+            JudgeKey(DX.KEY_INPUT_C);  // Ｃキー
+            JudgeKey(DX.KEY_INPUT_D);  // Ｄキー
+            JudgeKey(DX.KEY_INPUT_E);  // Ｅキー
+            JudgeKey(DX.KEY_INPUT_F);  // Ｆキー
+            JudgeKey(DX.KEY_INPUT_G);  // Ｇキー
+            JudgeKey(DX.KEY_INPUT_H);  // Ｈキー
+            JudgeKey(DX.KEY_INPUT_I);  // Ｉキー
+            JudgeKey(DX.KEY_INPUT_J);  // Ｊキー
+            JudgeKey(DX.KEY_INPUT_K);  // Ｋキー
+            JudgeKey(DX.KEY_INPUT_L);  // Ｌキー
+            JudgeKey(DX.KEY_INPUT_M);  // Ｍキー
+            JudgeKey(DX.KEY_INPUT_N);  // Ｎキー
+            JudgeKey(DX.KEY_INPUT_O);  // Ｏキー
+            JudgeKey(DX.KEY_INPUT_P);  // Ｐキー
+            JudgeKey(DX.KEY_INPUT_Q);  // Ｑキー
+            JudgeKey(DX.KEY_INPUT_R);  // Ｒキー
+            JudgeKey(DX.KEY_INPUT_S);  // Ｓキー
+            JudgeKey(DX.KEY_INPUT_T);  // Ｔキー
+            JudgeKey(DX.KEY_INPUT_U);  // Ｕキー
+            JudgeKey(DX.KEY_INPUT_V);  // Ｖキー
+            JudgeKey(DX.KEY_INPUT_W);  // Ｗキー
+            JudgeKey(DX.KEY_INPUT_X);  // Ｘキー
+            JudgeKey(DX.KEY_INPUT_Y);  // Ｙキー
+            JudgeKey(DX.KEY_INPUT_Z);  // Ｚキー
+            JudgeKey(DX.KEY_INPUT_0);  // ０キー
+            JudgeKey(DX.KEY_INPUT_1);  // １キー
+            JudgeKey(DX.KEY_INPUT_2);  // ２キー
+            JudgeKey(DX.KEY_INPUT_3);  // ３キー
+            JudgeKey(DX.KEY_INPUT_4);  // ４キー
+            JudgeKey(DX.KEY_INPUT_5);  // ５キー
+            JudgeKey(DX.KEY_INPUT_6);  // ６キー
+            JudgeKey(DX.KEY_INPUT_7);  // ７キー
+            JudgeKey(DX.KEY_INPUT_8);  // ８キー
+            JudgeKey(DX.KEY_INPUT_9);  // ９キー
+            JudgeKey(DX.KEY_INPUT_SPACE);
+            JudgeKey(DX.KEY_INPUT_RETURN);
+            JudgeKey(DX.KEY_INPUT_TAB);
+            /*
             JudgeKey(DX.KEY_INPUT_W);
             JudgeKey(DX.KEY_INPUT_A);
             JudgeKey(DX.KEY_INPUT_S);
             JudgeKey(DX.KEY_INPUT_D);
-            JudgeKey(DX.KEY_INPUT_RETURN);
-            JudgeKey(DX.KEY_INPUT_TAB);
-
-            JudgeKeyLong(DX.KEY_INPUT_LCONTROL);
-            JudgeKeyLong(DX.KEY_INPUT_LSHIFT);
+            */
 
             JudgeMousePoint();
             JudgeMouseWheelVol();
+
 
             /*
             JudgeClick();
@@ -489,7 +528,7 @@ namespace RinUI
             SState = csA && !csB;
             csB = csA;
         }
-
+        /*
         private void JudgeKey()
         {
             wA = DX.CheckHitKey(DX.KEY_INPUT_W) == 1;
@@ -503,13 +542,13 @@ namespace RinUI
             sA = DX.CheckHitKey(DX.KEY_INPUT_S) == 1;
             S = sA && !sB;
             sB = sA;
-
+            
             dA = DX.CheckHitKey(DX.KEY_INPUT_D) == 1;
             D = dA && !dB;
             dB = dA;
+            
 
-
-        }
+        }*/
 
         private void JudgeTab()
         {
