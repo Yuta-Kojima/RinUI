@@ -131,7 +131,8 @@ namespace RinUI.UIClasses
             DX.SetActiveKeyInput(keyData);
             DX.SetKeyInputString(Text.ToString(), keyData);
             DX.SetKeyInputStringFont(theme.MenuFontHandle);
-            isInput = true;
+            ComponentManager.Instance.AddEndAction(() => isInput = true);
+            //isInput = true;
             state.EditState = Edit.Input;
             ComponentManager.Instance.AddEndAction(() => state.IsInputString = true);
         }
