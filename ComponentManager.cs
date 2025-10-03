@@ -6,16 +6,17 @@ using System.Runtime.InteropServices;
 
 namespace RinUI
 {
-    public unsafe class ComponentManager
+    public class ComponentManager
     {
-        private static readonly ComponentManager instance = new();
+        private static ComponentManager instance = new ComponentManager();
         //private List<IRinui> Rinuis { get; set; } = new List<IRinui>();
         public Dictionary<string, IRinui> Rinuis { get; private set; } = new Dictionary<string, IRinui>();
         private List<Action> EndActions { get; set; } = new();
 
-        public static ComponentManager Instance
+        public static ComponentManager Instance => instance ??= new ComponentManager();
+        private ComponentManager()
         {
-            get { return instance; }
+
         }
 
         public void Update()
@@ -29,7 +30,7 @@ namespace RinUI
 
         public void Draw()
         {
-            foreach(IRinui ui in Rinuis.Select(item => item.Value))
+            foreach (IRinui ui in Rinuis.Select(item => item.Value))
             {
                 ui?.Draw();
             }
@@ -40,7 +41,7 @@ namespace RinUI
             Rinuis.Add(key, rinui);
             var q = Rinuis.OrderBy(ui => ui.Value.Layer);
             Dictionary<string, IRinui> dic = new Dictionary<string, IRinui>();
-            foreach(var item in q)
+            foreach (var item in q)
             {
                 dic.Add(item.Key, item.Value);
             }
@@ -49,7 +50,7 @@ namespace RinUI
 
         private void EndAction()
         {
-            foreach(Action action in CollectionsMarshal.AsSpan(EndActions))
+            foreach (Action action in CollectionsMarshal.AsSpan(EndActions))
             {
                 action();
             }

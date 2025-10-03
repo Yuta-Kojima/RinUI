@@ -68,7 +68,7 @@ namespace RinUI.Manager
             BorderColor = borderColor ?? new Color(MainColor)[100];
             BorderColorLight = new Color(BorderColor)[range];
             BorderColorDark = new Color(BorderColor)[-range];
-            AccentColor = accentColor ?? Color.M_GREEN[range];
+            AccentColor = accentColor ?? Color.PINK[range];
             FontColor = fontColor ?? Color.WHITE[0];
             AccentFontColor = accentFontColor ?? new Color(AccentColor)[100];
             MenuFontHandle = DX.CreateFontToHandle("ＭＳ ゴシック", menuFontHandleSize ?? 14, 1, DX.DX_FONTTYPE_ANTIALIASING);

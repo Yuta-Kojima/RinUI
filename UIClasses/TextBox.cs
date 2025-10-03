@@ -95,13 +95,11 @@ namespace RinUI.UIClasses
         private void JudgeClickedTextBox()
         {
             // 入力中
-            //if (state.JudgeInAreaStartToEnd(Vector) && state.IsLeftClicked && State.Instance().SelectedLayer < Layer)
             if ((Vector >= new Vector2(state.MouseX, state.MouseY)) && state.IsLeftClicked && State.Instance().SelectedLayer < Layer)
             {
                 WriteText();
             }
             // 入力を終了したとき
-            //else if ((!state.JudgeInAreaStartToEnd(Vector) && state.IsLeftClicked || DX.CheckKeyInput(keyData) == 1 && state.IsPushedEnter) && isInput)
             else if ((!(Vector >= new Vector2(state.MouseX, state.MouseY)) && state.IsLeftClicked || DX.CheckKeyInput(keyData) == 1 && state.GetKeyState(DX.KEY_INPUT_RETURN)) && isInput)
             {
                 SaveText();
@@ -132,7 +130,6 @@ namespace RinUI.UIClasses
             DX.SetKeyInputString(Text.ToString(), keyData);
             DX.SetKeyInputStringFont(theme.MenuFontHandle);
             ComponentManager.Instance.AddEndAction(() => isInput = true);
-            //isInput = true;
             state.EditState = Edit.Input;
             ComponentManager.Instance.AddEndAction(() => state.IsInputString = true);
         }
@@ -144,7 +141,17 @@ namespace RinUI.UIClasses
             DX.GetKeyInputString(Text, keyData);
             if (ValidationFunc == null || ValidationFunc(Text.ToString()))
             {
-                Action?.Invoke(Text.ToString());
+                try
+                {
+                    Action?.Invoke(Text.ToString());
+
+                }
+                catch
+                {
+#if DEBUG
+                    Console.WriteLine("TextBox Action.Invoke Error.");
+#endif
+                }
             }
             else
             {

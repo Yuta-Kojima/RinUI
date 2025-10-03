@@ -72,6 +72,10 @@ namespace RinUI
         /// 右ドラックをしている最中である時にTrueになる。
         /// </summary>
         public bool IsRightDraging { get; private set; }
+        /// <summary>
+        /// 入力中にTrueになる
+        /// </summary>
+        public bool IsInputText { get; private set; }
 
         private readonly long DRAG_TIME = 300;
         private readonly Stopwatch _LeftDragStopWatch = new();
@@ -361,6 +365,11 @@ namespace RinUI
             JudgeKey(DX.KEY_INPUT_7);  // ７キー
             JudgeKey(DX.KEY_INPUT_8);  // ８キー
             JudgeKey(DX.KEY_INPUT_9);  // ９キー
+            JudgeKey(DX.KEY_INPUT_LEFT);
+            JudgeKey(DX.KEY_INPUT_UP);
+            JudgeKey(DX.KEY_INPUT_RIGHT);
+            JudgeKey(DX.KEY_INPUT_DOWN);
+
             JudgeKey(DX.KEY_INPUT_SPACE);
             JudgeKey(DX.KEY_INPUT_RETURN);
             JudgeKey(DX.KEY_INPUT_TAB);
